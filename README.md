@@ -8,6 +8,9 @@ software testing homework1
 執行指令
 
 ./hw1_Triangle_full
+
 ./hw1_NextDate_full
+
 ./hw1_Commission_full
+
 
