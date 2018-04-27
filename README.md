@@ -3,9 +3,11 @@ software testing homework1
 
 編譯方式:
 
-將Makefile和要編譯的檔案(檔名必須自己改成hw1.cc)放進 $(GTEST_DIR)/googletest/make 資料夾裡
+在clone後的主目錄下用 make 指令編譯即可
 
-用 make 指令編譯
+執行指令
 
-用 ./hw1 指令執行
+./hw1_Triangle_full
+./hw1_NextDate_full
+./hw1_Commission_full
 
