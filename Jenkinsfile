@@ -14,8 +14,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh './hw1_Triangle_full'
-				sh './hw1_NextDate_full'
-				sh './hw1_Commission_full'
+		sh './hw1_NextDate_full'
+		sh './hw1_Commission_full'
             }
         }
     }
