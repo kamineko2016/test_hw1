@@ -1,0 +1,13 @@
+language: cpp
+compiler:
+- g++
+os:
+- linux
+script:
+- make
+- ./hw1_Triangle_full
+- ./hw1_NextDate_full
+- ./hw1_Commission_full
+branches:
+  only:
+  - master
