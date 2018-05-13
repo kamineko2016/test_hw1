@@ -2,6 +2,7 @@
 software testing homework1
 
 [![Build Status](https://travis-ci.org/kamineko2016/test_hw1.svg?branch=master)](https://travis-ci.org/kamineko2016/test_hw1)
+[![codecov](https://codecov.io/gh/kamineko2016/test_hw1/branch/master/graph/badge.svg)](https://codecov.io/gh/kamineko2016/test_hw1)
 
 編譯方式:
 
