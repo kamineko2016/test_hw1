@@ -33,18 +33,16 @@ int nextdate(int year, int month, int day)
 			next_month = month;
 			next_day = day + 1;
 		}
-		else if(day == 31)
+		
+		if(day == 31)
 		{
 			next_year = year;
 			next_month = month + 1;
 			next_day = 1;
 		}
-		else
-		{
-			return 0;
-		}
 	}
-	else if(month == 4 || month == 6 || month == 9 || month == 11)
+	
+	if(month == 4 || month == 6 || month == 9 || month == 11)
 	{
 		if(day < 30)
 		{
@@ -63,7 +61,8 @@ int nextdate(int year, int month, int day)
 			return 0;
 		}
 	}
-	else if(month == 12)
+	
+	if(month == 12)
 	{
 		if(day < 31)
 		{
@@ -71,18 +70,16 @@ int nextdate(int year, int month, int day)
 			next_month = month;
 			next_day = day + 1;
 		}
-		else if(day == 31)
+		
+		if(day == 31)
 		{
 			next_year = year + 1;
 			next_month = 1;
 			next_day = 1;
 		}
-		else
-		{
-			return 0;
-		}
 	}
-	else if(month == 2)
+	
+	if(month == 2)
 	{
 		if(day < 28)
 		{
@@ -123,10 +120,7 @@ int nextdate(int year, int month, int day)
 			return 0;
 		}
 	}
-	else
-	{
-		return 0;
-	}
+	
 	
 	return next_year*10000 + next_month*100 + next_day;
 	
