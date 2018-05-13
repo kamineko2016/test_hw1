@@ -27,6 +27,8 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 # Flags passed to the C++ compiler.
 CXXFLAGS += -g -Wall -Wextra -pthread
 
+GCOVFLAGS += -fprofile-arcs -ftest-coverage
+
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
 TESTS = hw1_Triangle_full hw1_NextDate_full hw1_Commission_full
@@ -72,19 +74,19 @@ gtest_main.a : gtest-all.o gtest_main.o
 # function.
 
 hw1_Triangle_full.o : $(USER_DIR)/hw1_Triangle_full.cc $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/hw1_Triangle_full.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_Triangle_full.cc
 
 hw1_Triangle_full : hw1_Triangle_full.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
 
 hw1_NextDate_full.o : $(USER_DIR)/hw1_NextDate_full.cc $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/hw1_NextDate_full.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_NextDate_full.cc
 
 hw1_NextDate_full : hw1_NextDate_full.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
 
 hw1_Commission_full.o : $(USER_DIR)/hw1_Commission_full.cc $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/hw1_Commission_full.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_Commission_full.cc
 
 hw1_Commission_full : hw1_Commission_full.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@

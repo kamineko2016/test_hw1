@@ -3,11 +3,19 @@ compiler:
 - g++
 os:
 - linux
+install:
+- sudo pip install codecov
 script:
 - make
 - ./hw1_Triangle_full
 - ./hw1_NextDate_full
 - ./hw1_Commission_full
+- gcov hw1_Triangle_full.cc
+- gcov hw1_NextDate_full.cc
+- gcov hw1_Commission_full.cc
+
 branches:
   only:
   - master
+after_success:
+- codecov -t 33904b4a2fc5964f4ad30e27d52dea598ef1d1bb -X gcov
