@@ -7,12 +7,15 @@ install:
 - sudo pip install codecov
 script:
 - make
-- ./hw1_Triangle_full
-- ./hw1_NextDate_full
-- ./hw1_Commission_full
-- gcov hw1_Triangle_full.cc
-- gcov hw1_NextDate_full.cc
-- gcov hw1_Commission_full.cc
+- ./hw1_Triangle_test
+- ./hw1_NextDate_test
+- ./hw1_Commission_test
+- gcov -a hw1_Triangle.cc
+- gcov -a hw1_NextDate.cc
+- gcov -a hw1_Commission.cc
+- gcov -b hw1_Triangle.cc
+- gcov -b hw1_NextDate.cc
+- gcov -b hw1_Commission.cc
 
 branches:
   only:

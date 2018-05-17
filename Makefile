@@ -31,7 +31,7 @@ GCOVFLAGS += -fprofile-arcs -ftest-coverage
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = hw1_Triangle_full hw1_NextDate_full hw1_Commission_full
+TESTS = hw1_Triangle_test hw1_NextDate_test hw1_Commission_test
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -43,7 +43,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 all : $(TESTS)
 
 clean :
-	rm -f $(TESTS) gtest.a gtest_main.a *.o
+	rm -f $(TESTS) gtest.a gtest_main.a *.o *.gcov *.gcno *.gcda
 
 # Builds gtest.a and gtest_main.a.
 
@@ -73,20 +73,34 @@ gtest_main.a : gtest-all.o gtest_main.o
 # gtest_main.a, depending on whether it defines its own main()
 # function.
 
-hw1_Triangle_full.o : $(USER_DIR)/hw1_Triangle_full.cc $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_Triangle_full.cc
+hw1_Triangle.o : $(USER_DIR)/hw1_Triangle.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_Triangle.cc
 
-hw1_Triangle_full : hw1_Triangle_full.o gtest_main.a
+hw1_Triangle_test.o : $(USER_DIR)/hw1_Triangle_test.cc $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/hw1_Triangle_test.cc
+
+hw1_Triangle_test : hw1_Triangle.o hw1_Triangle_test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
 
-hw1_NextDate_full.o : $(USER_DIR)/hw1_NextDate_full.cc $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_NextDate_full.cc
 
-hw1_NextDate_full : hw1_NextDate_full.o gtest_main.a
+
+hw1_NextDate.o : $(USER_DIR)/hw1_NextDate.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_NextDate.cc
+
+hw1_NextDate_test.o : $(USER_DIR)/hw1_NextDate_test.cc $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/hw1_NextDate_test.cc
+
+hw1_NextDate_test : hw1_NextDate.o hw1_NextDate_test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
 
-hw1_Commission_full.o : $(USER_DIR)/hw1_Commission_full.cc $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_Commission_full.cc
 
-hw1_Commission_full : hw1_Commission_full.o gtest_main.a
+
+hw1_Commission.o : $(USER_DIR)/hw1_Commission.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/hw1_Commission.cc
+
+hw1_Commission_test.o : $(USER_DIR)/hw1_Commission_test.cc $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/hw1_Commission_test.cc
+
+hw1_Commission_test : hw1_Commission.o hw1_Commission_test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
+

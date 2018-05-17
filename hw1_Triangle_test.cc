@@ -1,29 +1,5 @@
 #include "gtest/gtest.h"
-
-
-int triangle(int a, int b, int c)
-{
-	return 0;
-}
-
-
-// return 1 -> 正三角形
-// return 2 -> 等腰三角形
-// return 3 -> 普通三角形
-// return 4 -> 不是三角形
-
-// return 5 -> invalid a
-// return 6 -> invalid b
-// return 7 -> invalid c
-
-// return 8 -> invalid a,b
-// return 9 -> invalid b,c
-// return 10 -> invalid a,c
-
-// return 11 -> invalid a,b,c
-
-
-
+#include "hw1_Triangle.h"
 
 namespace {
 

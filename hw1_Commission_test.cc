@@ -1,26 +1,5 @@
 #include "gtest/gtest.h"
-
-
-double commission(int sell_L, int sell_S, int sell_B)
-{
-	
-	return 0.0;
-	
-}
-
-
-// return -1.0 -> end
-
-// return -2.0 -> sell_L invalid
-// return -3.0 -> sell_S invalid
-// return -4.0 -> sell_B invalid
-
-// return -5.0 -> sell_L sell_S invalid
-// return -6.0 -> sell_L sell_B invalid
-// return -7.0 -> sell_S sell_B invalid
-
-// return -8.0 -> sell_L sell_S sell_B invalid
-
+#include "hw1_Commission.h"
 
 
 namespace {
